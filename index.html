@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>التدريب الشخصي أونلاين مع نواف العتيبي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d10; --bg2:#12151a; --card:#171b21; --line:#262c35;
+  --text:#f2f4f7; --muted:#9aa3af; --accent:#c6f432; --accent-ink:#0b0d10; --danger:#ff6b6b;
+  --r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(11,13,16,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:900;font-size:20px;letter-spacing:-.3px}
+.logo span{color:var(--accent)}
+.navlinks{display:flex;gap:26px;font-weight:500;color:var(--muted)}
+.navlinks a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:var(--accent-ink);font-weight:800;border:none;border-radius:999px;padding:12px 24px;font-size:16px;cursor:pointer;font-family:inherit;transition:transform .15s,opacity .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--text);border:1.5px solid var(--line)}
+.btn.sm{padding:9px 18px;font-size:14px}
+@media(max-width:760px){.navlinks{display:none}}
+
+/* hero */
+.hero{padding:80px 0 70px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-40% -20% auto auto;width:620px;height:620px;background:radial-gradient(circle,rgba(198,244,50,.16),transparent 65%);pointer-events:none}
+.tag{display:inline-block;background:rgba(198,244,50,.1);color:var(--accent);border:1px solid rgba(198,244,50,.3);padding:6px 14px;border-radius:999px;font-size:14px;font-weight:700;margin-bottom:22px}
+.hero h1{font-size:clamp(36px,6vw,64px);font-weight:900;line-height:1.2;letter-spacing:-1px;max-width:780px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{color:var(--muted);font-size:clamp(17px,2.2vw,20px);max-width:620px;margin:20px 0 34px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:44px}
+.chip{background:var(--card);border:1px solid var(--line);padding:10px 16px;border-radius:12px;font-size:15px;color:var(--muted)}
+.chip b{color:var(--text)}
+
+/* sections */
+section{padding:72px 0}
+.sec-head{margin-bottom:36px}
+.sec-head small{color:var(--accent);font-weight:800;font-size:14px;letter-spacing:.5px}
+.sec-head h2{font-size:clamp(28px,4vw,40px);font-weight:900;line-height:1.3;margin-top:6px}
+.sec-head p{color:var(--muted);margin-top:8px;max-width:600px}
+.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.ico{width:46px;height:46px;border-radius:12px;background:rgba(198,244,50,.12);display:grid;place-items:center;margin-bottom:16px}
+.ico svg{width:24px;height:24px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:19px;font-weight:800;margin-bottom:6px}
+.card p{color:var(--muted);font-size:15.5px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+@media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+.step{position:relative;padding:24px;border-radius:var(--r);border:1px dashed var(--line)}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:900;margin-bottom:14px}
+.step h4{font-size:17px;font-weight:800}
+.step p{color:var(--muted);font-size:15px}
+
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+@media(max-width:900px){.plans{grid-template-columns:1fr}}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px;display:flex;flex-direction:column;position:relative}
+.plan.best{border:2px solid var(--accent);background:linear-gradient(180deg,rgba(198,244,50,.07),var(--card) 40%)}
+.badge{position:absolute;top:-13px;right:24px;background:var(--accent);color:var(--accent-ink);font-weight:800;font-size:13px;padding:4px 12px;border-radius:999px}
+.plan h3{font-size:20px;font-weight:800}
+.plan .dur{color:var(--muted);font-size:15px}
+.price{font-size:46px;font-weight:900;margin:16px 0 4px;line-height:1}
+.price small{font-size:17px;color:var(--muted);font-weight:500;margin-right:4px}
+.per{color:var(--muted);font-size:14px;margin-bottom:20px}
+.plan ul{list-style:none;display:grid;gap:10px;margin-bottom:26px;flex:1}
+.plan li{display:flex;gap:10px;font-size:15.5px}
+.plan li::before{content:"✓";color:var(--accent);font-weight:900}
+.plan .btn{width:100%}
+
+/* terms */
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:700px){.terms{grid-template-columns:1fr}}
+.term{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:15.5px}
+.term .n{flex:none;width:28px;height:28px;border-radius:8px;background:var(--bg);border:1px solid var(--line);display:grid;place-items:center;font-weight:800;color:var(--accent);font-size:14px}
+
+/* form */
+.form-shell{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:clamp(20px,4vw,40px);max-width:760px;margin:0 auto}
+.progress{display:flex;gap:8px;margin-bottom:10px}
+.progress span{flex:1;height:6px;border-radius:9px;background:var(--line);transition:background .3s}
+.progress span.on{background:var(--accent)}
+.step-label{color:var(--muted);font-size:14px;margin-bottom:22px}
+.step-label b{color:var(--text)}
+.fstep{display:none}
+.fstep.active{display:block;animation:fade .3s}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+.fstep h3{font-size:22px;font-weight:900;margin-bottom:20px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+.field{margin-bottom:18px}
+.field>label,.field>.q{display:block;font-weight:700;margin-bottom:8px;font-size:15.5px}
+.req{color:var(--danger)}
+.hint{color:var(--muted);font-size:13.5px;font-weight:400;display:block;margin-top:-4px;margin-bottom:8px}
+input[type=text],input[type=tel],input[type=email],input[type=number],textarea{width:100%;background:var(--bg);border:1.5px solid var(--line);color:var(--text);border-radius:12px;padding:13px 15px;font-family:inherit;font-size:16px;transition:border .15s}
+textarea{min-height:96px;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--accent)}
+.opts{display:grid;gap:8px}
+.opts.two{grid-template-columns:1fr 1fr}
+@media(max-width:560px){.opts.two{grid-template-columns:1fr}}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt label{display:flex;align-items:center;gap:10px;background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;font-size:15.5px;transition:all .15s}
+.opt label::before{content:"";width:18px;height:18px;border-radius:50%;border:2px solid var(--muted);flex:none;transition:all .15s}
+.opt input:checked+label{border-color:var(--accent);background:rgba(198,244,50,.07)}
+.opt input:checked+label::before{border-color:var(--accent);background:var(--accent);box-shadow:inset 0 0 0 3px var(--bg)}
+.other-in{margin-top:8px;display:none}
+.other-in.show{display:block}
+.plan-opt label{justify-content:space-between}
+.plan-opt label b{color:var(--accent);margin-right:auto}
+.agree{display:flex;gap:12px;align-items:flex-start;background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;font-size:15px}
+.agree input{width:20px;height:20px;accent-color:var(--accent);flex:none;margin-top:3px}
+.err{color:var(--danger);font-size:14px;margin-top:6px;display:none}
+.field.bad .err{display:block}
+.field.bad input,.field.bad textarea,.field.bad .opt label{border-color:rgba(255,107,107,.6)}
+.nav-btns{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.nav-btns .btn{min-width:130px}
+.done{text-align:center;padding:20px 0}
+.done .big{width:72px;height:72px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-size:36px;font-weight:900;margin:0 auto 18px}
+.done h3{font-size:24px;font-weight:900}
+.done p{color:var(--muted);margin:8px auto 20px;max-width:480px}
+.done .actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.addr{direction:ltr;display:inline-block;background:var(--bg);border:1px solid var(--line);padding:4px 10px;border-radius:8px;font-size:14px;margin-top:12px}
+
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:14.5px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer a{color:var(--text)}
+footer .social{display:flex;gap:18px;flex-wrap:wrap}
+.wa-float{position:fixed;left:18px;bottom:18px;z-index:30;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+.btn.wa{background:#25d366;color:#fff}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">كوتش <span>نواف</span></div>
+    <div class="navlinks">
+      <a href="#features">المزايا</a>
+      <a href="#how">كيف نبدأ</a>
+      <a href="#plans">الباقات</a>
+      <a href="#terms">الشروط</a>
+    </div>
+    <a href="#register" class="btn sm">سجّل الآن</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="tag">التدريب الشخصي أونلاين</div>
+    <h1>جسمك يتغيّر بخطة <em>مصمّمة لك أنت</em> مو خطة جاهزة</h1>
+    <p>برنامج تمرين وتغذية مبني على وزنك وهدفك ووقتك، مع متابعة أسبوعية مباشرة من نواف العتيبي — سواء تتمرن في النادي أو في البيت.</p>
+    <div class="ctas">
+      <a href="#register" class="btn">ابدأ التسجيل</a>
+      <a href="#plans" class="btn ghost">شوف الباقات</a>
+      <a href="https://www.instagram.com/1nawafot" target="_blank" rel="noopener" class="btn ghost">انستقرام <span dir="ltr">@1nawafot</span></a>
+    </div>
+    <div class="chips">
+      <div class="chip"><b>تمرين + تغذية</b> في كل باقة</div>
+      <div class="chip"><b>متابعة</b> أسبوعية</div>
+      <div class="chip">تستلم خطتك خلال <b>3–7 أيام عمل</b></div>
+    </div>
+  </div>
+</header>
+
+<section id="features" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <small>المزايا</small>
+      <h2>وش تحصل مع الاشتراك؟</h2>
+      <p>كل شيء مبني على المعلومات اللي تعطيني إياها في التسجيل، ويتعدّل حسب تقدّمك.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/></svg></div><h3>خطة تمرين مخصّصة</h3><p>جدول تمارين يناسب مستواك وعدد أيامك المتاحة، للنادي أو للبيت.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21c-4.4 0-8-3.6-8-8 0-3 2-6 5-6 1.3 0 2.2.6 3 .6S13.7 7 15 7c3 0 5 3 5 6 0 4.4-3.6 8-8 8z"/><path d="M12 7c0-2 1-4 3-4"/></svg></div><h3>نظام غذائي واضح</h3><p>تغذية محسوبة على هدفك: تنشيف، تضخيم، أو زيادة وزن صحية.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><h3>متابعة أسبوعية</h3><p>ترسل ملف المتابعة كل أسبوع (الوزن والمقاسات) وأراجع تقدمك أول بأول.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div><h3>تعديل مستمر للخطة</h3><p>الخطة مو ثابتة؛ تتطوّر مع نتائجك عشان ما توقف عند نفس المستوى.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>تواصل مباشر</h3><p>أي استفسار عن تمرين أو وجبة؟ تواصل معي مباشرة وتلقى الجواب.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>مراعاة حالتك الصحية</h3><p>الإصابات والأمراض المزمنة تنأخذ بالاعتبار من أول يوم في بناء الخطة.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <small>الخدمة</small>
+      <h2>كيف نبدأ؟</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><h4>اختر باقتك</h4><p>حسب المدة اللي تناسبك.</p></div>
+      <div class="step"><h4>عبّي نموذج التسجيل</h4><p>معلوماتك وهدفك وحالتك الصحية.</p></div>
+      <div class="step"><h4>ادفع وأكّد</h4><p>أتواصل معك على جوالك لتأكيد الاشتراك.</p></div>
+      <div class="step"><h4>استلم خطتك</h4><p>خلال 3–7 أيام عمل وتبدأ المتابعة.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="plans" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <small>الاشتراكات</small>
+      <h2>اختر الباقة المناسبة</h2>
+      <p>كل الباقات تشمل التمرين والتغذية والمتابعة الأسبوعية.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <h3>باقة الشهرين</h3><div class="dur">تمرين وتغذية · شهرين</div>
+        <div class="price">599<small>ريال</small></div><div class="per">≈ 300 ريال بالشهر</div>
+        <ul><li>خطة تمرين مخصّصة</li><li>نظام غذائي حسب هدفك</li><li>متابعة أسبوعية</li><li>تواصل مباشر</li></ul>
+        <a href="#register" class="btn ghost" data-plan="تمرين وتغذية شهرين 599 ريال">اختر هذي الباقة</a>
+      </div>
+      <div class="plan best">
+        <div class="badge">الأوفر</div>
+        <h3>باقة ٣ شهور</h3><div class="dur">تمرين وتغذية · ٣ شهور</div>
+        <div class="price">799<small>ريال</small></div><div class="per">≈ 266 ريال بالشهر</div>
+        <ul><li>كل مزايا باقة الشهرين</li><li>شهر إضافي بفرق 200 ريال فقط</li><li>وقت أطول لنتيجة ثابتة</li><li>تعديلات أكثر على الخطة</li></ul>
+        <a href="#register" class="btn" data-plan="تمرين وتغذية ٣ شهور 799 ريال">اختر هذي الباقة</a>
+      </div>
+      <div class="plan">
+        <h3>باقة الطلاب</h3><div class="dur">تمرين + تغذية · شهرين</div>
+        <div class="price">400<small>ريال</small></div><div class="per">≈ 200 ريال بالشهر</div>
+        <ul><li>نفس محتوى باقة الشهرين</li><li>سعر خاص للطلاب</li><li>متابعة أسبوعية</li><li>تواصل مباشر</li></ul>
+        <a href="#register" class="btn ghost" data-plan="باقة الطلاب (تمرين + تغذية) شهرين 400 ريال">اختر هذي الباقة</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="terms">
+  <div class="wrap">
+    <div class="sec-head">
+      <small>قبل ما تشترك</small>
+      <h2>شروط التدريب الشخصي</h2>
+    </div>
+    <div class="terms">
+      <div class="term"><div class="n">1</div><div>المبلغ المدفوع لا يمكن استرجاعه، ولا يمكن الدفع على أقساط.</div></div>
+      <div class="term"><div class="n">2</div><div>الالتزام التام بتسليم ملفات المتابعة وإعطاء التفاصيل المطلوبة كل أسبوع لمتابعة التقدّم.</div></div>
+      <div class="term"><div class="n">3</div><div>يتعهّد المشترك بالالتزام بالتعليمات كاملة، وأي تصرف خارج التعليمات يتحمّل المشترك نتائجه.</div></div>
+      <div class="term"><div class="n">4</div><div>يتعهّد المشترك بعدم نشر أو مشاركة أي من الملفات المرفقة مع أي شخص آخر.</div></div>
+      <div class="term"><div class="n">5</div><div>للمدرب الأحقية بإلغاء اشتراك أي مشترك يخالف الشروط أو يسيء التعامل مع الطرف الآخر.</div></div>
+      <div class="term"><div class="n">6</div><div>وجود ميزان إلكتروني لقياس وزن الجسم، ومتر صغير لقياس مقاسات الجسم.</div></div>
+      <div class="term"><div class="n">7</div><div>يتم تسليم الخطة التدريبية بعد 3–7 أيام عمل من الدفع واستقبال كامل التفاصيل المطلوبة.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="register" class="alt">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center">
+      <small>التسجيل</small>
+      <h2>نموذج الاشتراك</h2>
+      <p style="margin-inline:auto">٤ خطوات بسيطة، وكل ما كانت إجاباتك أدق كانت خطتك أدق.</p>
+    </div>
+
+    <div class="form-shell">
+      <form id="regForm" novalidate>
+        <div id="formSteps">
+          <div class="progress"><span class="on"></span><span></span><span></span><span></span></div>
+          <div class="step-label">الخطوة <b id="stepNum">1</b> من 4 · <span id="stepName">بياناتك</span></div>
+
+          <!-- step 1 -->
+          <div class="fstep active" data-name="بياناتك">
+            <h3>بياناتك الأساسية</h3>
+            <div class="field"><label>الاسم الثلاثي <span class="req">*</span></label><input type="text" name="الاسم الثلاثي" required><div class="err">اكتب اسمك الثلاثي</div></div>
+            <div class="row">
+              <div class="field"><label>رقم الجوال <span class="req">*</span></label><input type="tel" name="رقم الجوال" placeholder="05xxxxxxxx" dir="ltr" required><div class="err">اكتب رقم جوال صحيح</div></div>
+              <div class="field"><label>الإيميل <span class="req">*</span></label><input type="email" name="الإيميل" placeholder="name@gmail.com" dir="ltr" required><div class="err">اكتب إيميل صحيح</div></div>
+            </div>
+            <div class="field"><span class="q">من وين عرفت نواف العتيبي؟ <span class="req">*</span></span>
+              <div class="opts two" data-radio="من وين عرفتني">
+                <div class="opt"><input type="radio" id="s1" name="من وين عرفتني" value="انستقرام" required><label for="s1">انستقرام</label></div>
+                <div class="opt"><input type="radio" id="s2" name="من وين عرفتني" value="تيك توك"><label for="s2">تيك توك</label></div>
+                <div class="opt"><input type="radio" id="s3" name="من وين عرفتني" value="سناب شات"><label for="s3">سناب شات</label></div>
+                <div class="opt"><input type="radio" id="s4" name="من وين عرفتني" value="تويتر"><label for="s4">تويتر</label></div>
+                <div class="opt"><input type="radio" id="s5" name="من وين عرفتني" value="__other"><label for="s5">أخرى</label></div>
+              </div>
+              <input type="text" class="other-in" placeholder="اكتب المصدر">
+              <div class="err">اختر إجابة</div>
+            </div>
+          </div>
+
+          <!-- step 2 -->
+          <div class="fstep" data-name="جسمك وهدفك">
+            <h3>جسمك وهدفك</h3>
+            <div class="row">
+              <div class="field"><label>العمر <span class="req">*</span></label><input type="number" name="العمر" inputmode="numeric" min="10" max="90" required><div class="err">مطلوب</div></div>
+              <div class="field"><label>الوزن (كجم) <span class="req">*</span></label><input type="number" name="الوزن" inputmode="decimal" step="0.1" required><div class="err">مطلوب</div></div>
+            </div>
+            <div class="field"><label>الطول (سم) <span class="req">*</span></label><input type="number" name="الطول" inputmode="numeric" required><div class="err">مطلوب</div></div>
+            <div class="field"><span class="q">وش هدفك من الاشتراك؟ <span class="req">*</span></span>
+              <div class="opts two">
+                <div class="opt"><input type="radio" id="g1" name="الهدف" value="خسارة الدهون أو التنشيف" required><label for="g1">خسارة الدهون أو التنشيف</label></div>
+                <div class="opt"><input type="radio" id="g2" name="الهدف" value="بناء العضلات أو التضخيم"><label for="g2">بناء العضلات أو التضخيم</label></div>
+                <div class="opt"><input type="radio" id="g3" name="الهدف" value="التخلص من النحافة"><label for="g3">التخلص من النحافة</label></div>
+                <div class="opt"><input type="radio" id="g4" name="الهدف" value="زيادة القوة"><label for="g4">زيادة القوة</label></div>
+                <div class="opt"><input type="radio" id="g5" name="الهدف" value="تحسين الأداء الرياضي واللياقة"><label for="g5">تحسين الأداء الرياضي واللياقة</label></div>
+                <div class="opt"><input type="radio" id="g6" name="الهدف" value="__other"><label for="g6">أخرى</label></div>
+              </div>
+              <input type="text" class="other-in" placeholder="اكتب هدفك">
+              <div class="err">اختر هدفك</div>
+            </div>
+            <div class="field"><span class="q">وش مستواك الرياضي الحالي؟ <span class="req">*</span></span>
+              <div class="opts">
+                <div class="opt"><input type="radio" id="l1" name="المستوى" value="مبتدئ (ما مارست أي رياضة بالسابق)" required><label for="l1">مبتدئ — ما مارست أي رياضة بالسابق</label></div>
+                <div class="opt"><input type="radio" id="l2" name="المستوى" value="متوسط (أمارس الرياضة بشكل متقطع)"><label for="l2">متوسط — أمارس الرياضة بشكل متقطع</label></div>
+                <div class="opt"><input type="radio" id="l3" name="المستوى" value="متقدم (ملتزم على الرياضة)"><label for="l3">متقدم — ملتزم على الرياضة</label></div>
+              </div>
+              <div class="err">اختر مستواك</div>
+            </div>
+          </div>
+
+          <!-- step 3 -->
+          <div class="fstep" data-name="تمرينك وصحتك">
+            <h3>تمرينك وصحتك</h3>
+            <div class="field"><span class="q">هل تتمرن حالياً؟ <span class="req">*</span></span>
+              <div class="opts">
+                <div class="opt"><input type="radio" id="c1" name="يتمرن حالياً" value="نعم" required><label for="c1">نعم</label></div>
+                <div class="opt"><input type="radio" id="c2" name="يتمرن حالياً" value="لا"><label for="c2">لا</label></div>
+                <div class="opt"><input type="radio" id="c3" name="يتمرن حالياً" value="كنت أتمرن بالسابق بس وقفت"><label for="c3">كنت أتمرن بالسابق بس وقفت</label></div>
+              </div>
+              <div class="err">اختر إجابة</div>
+            </div>
+            <div class="row">
+              <div class="field"><span class="q">نوع الرياضة <span class="req">*</span></span>
+                <div class="opts">
+                  <div class="opt"><input type="radio" id="t1" name="نوع الرياضة" value="رفع الأثقال (الحديد)" required><label for="t1">رفع الأثقال (الحديد)</label></div>
+                  <div class="opt"><input type="radio" id="t2" name="نوع الرياضة" value="رياضات هوائية (كارديو)"><label for="t2">رياضات هوائية (كارديو)</label></div>
+                  <div class="opt"><input type="radio" id="t3" name="نوع الرياضة" value="__other"><label for="t3">أخرى</label></div>
+                </div>
+                <input type="text" class="other-in" placeholder="اكتب نوع الرياضة">
+                <div class="err">اختر إجابة</div>
+              </div>
+              <div class="field"><span class="q">وين تتمرن؟ <span class="req">*</span></span>
+                <div class="opts">
+                  <div class="opt"><input type="radio" id="w1" name="مكان التمرين" value="النادي" required><label for="w1">النادي</label></div>
+                  <div class="opt"><input type="radio" id="w2" name="مكان التمرين" value="البيت"><label for="w2">البيت</label></div>
+                  <div class="opt"><input type="radio" id="w3" name="مكان التمرين" value="__other"><label for="w3">أخرى</label></div>
+                </div>
+                <input type="text" class="other-in" placeholder="وين؟">
+                <div class="err">اختر إجابة</div>
+              </div>
+            </div>
+            <div class="field"><label>كم يوم تقدر تتمرن بالأسبوع؟ <span class="req">*</span></label><input type="number" name="أيام التمرين بالأسبوع" min="1" max="7" inputmode="numeric" required><div class="err">من 1 إلى 7</div></div>
+            <div class="field"><label>هل تعاني من أي أمراض مزمنة؟ <span class="req">*</span></label><span class="hint">مثال: السكري أو الضغط أو غيرها — اكتب "لا" إذا ما فيه</span><textarea name="أمراض مزمنة" required></textarea><div class="err">مطلوب</div></div>
+            <div class="field"><label>هل عندك إصابات حالياً أو بالسابق؟ <span class="req">*</span></label><span class="hint">اشرح باختصار، مثال: انزلاق غضروفي أو تمزق بالرباط الصليبي</span><input type="text" name="الإصابات" required><div class="err">مطلوب</div></div>
+            <div class="field"><label>وش مهنتك الحالية؟ <span class="req">*</span></label><span class="hint">اذكر طبيعة العمل: مكتبي أو يحتاج حركة؟</span><textarea name="المهنة وطبيعة العمل" required></textarea><div class="err">مطلوب</div></div>
+            <div class="field"><label>هل عندك تجربة سابقة بالتمارين والدايت؟ <span class="req">*</span></label><span class="hint">سواء لحالك أو مع مدرب — شاركني التجربة ونوع التمارين عشان أفهم خبرتك وأساعدك بشكل أفضل</span><textarea name="التجربة السابقة" required></textarea><div class="err">مطلوب</div></div>
+          </div>
+
+          <!-- step 4 -->
+          <div class="fstep" data-name="الباقة والتأكيد">
+            <h3>الباقة والتأكيد</h3>
+            <div class="field"><span class="q">الباقة المختارة <span class="req">*</span></span>
+              <div class="opts">
+                <div class="opt plan-opt"><input type="radio" id="p1" name="الباقة" value="تمرين وتغذية شهرين 599 ريال" required><label for="p1">تمرين وتغذية · شهرين <b>599 ريال</b></label></div>
+                <div class="opt plan-opt"><input type="radio" id="p2" name="الباقة" value="تمرين وتغذية ٣ شهور 799 ريال"><label for="p2">تمرين وتغذية · ٣ شهور <b>799 ريال</b></label></div>
+                <div class="opt plan-opt"><input type="radio" id="p3" name="الباقة" value="باقة الطلاب (تمرين + تغذية) شهرين 400 ريال"><label for="p3">باقة الطلاب · شهرين <b>400 ريال</b></label></div>
+              </div>
+              <div class="err">اختر باقة</div>
+            </div>
+            <div class="field"><label>هذي المساحة لك — حاب تقول أي شيء ثاني تبيني أعرفه عنك أو تبي تضيفه؟</label><textarea name="ملاحظات إضافية" placeholder="اختياري"></textarea></div>
+            <div class="field"><label class="agree"><input type="checkbox" name="الموافقة على الشروط" value="موافق" required><span>قرأت <a href="#terms" style="color:var(--accent);font-weight:700">شروط التدريب الشخصي</a> وأوافق على جميعها.</span></label><div class="err">لازم توافق على الشروط عشان تكمل</div></div>
+          </div>
+
+          <div class="nav-btns">
+            <button type="button" class="btn ghost" id="prevBtn" style="visibility:hidden">السابق</button>
+            <button type="button" class="btn" id="nextBtn">التالي</button>
+          </div>
+        </div>
+
+        <div id="doneBox" class="done" style="display:none"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="yr"></span> التدريب الشخصي أونلاين مع نواف العتيبي</div>
+    <div class="social">
+      <a href="https://www.instagram.com/1nawafot" target="_blank" rel="noopener">انستقرام <span dir="ltr">@1nawafot</span></a>
+      <a href="https://wa.me/966549751982" target="_blank" rel="noopener">واتساب <span dir="ltr">0549751982</span></a>
+      <a href="mailto:nawafalotaibe334@gmail.com" dir="ltr">nawafalotaibe334@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/966549751982?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D9%86%D8%AF%D9%8A%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D8%A7%D9%84%D8%B4%D8%AE%D8%B5%D9%8A" target="_blank" rel="noopener" aria-label="واتساب">
+  <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11 11 0 0 0 3.2 17.1L2 22l5-1.3A11 11 0 0 0 20.5 3.5zM12 20.2a9 9 0 0 1-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3A9.1 9.1 0 1 1 12 20.2zm5-6.8c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1l-.9 1.1c-.2.2-.3.2-.6.1a7.4 7.4 0 0 1-3.7-3.2c-.3-.5.3-.5.8-1.6.1-.2 0-.3 0-.4l-.9-2c-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+const OWNER_EMAIL = "nawafalotaibe334@gmail.com";
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+const steps = [...document.querySelectorAll('.fstep')];
+const bars = [...document.querySelectorAll('.progress span')];
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+let cur = 0;
+
+function show(i){
+  steps.forEach((s,k)=>s.classList.toggle('active',k===i));
+  bars.forEach((b,k)=>b.classList.toggle('on',k<=i));
+  document.getElementById('stepNum').textContent = i+1;
+  document.getElementById('stepName').textContent = steps[i].dataset.name;
+  prevBtn.style.visibility = i===0 ? 'hidden' : 'visible';
+  nextBtn.textContent = i===steps.length-1 ? 'إرسال التسجيل' : 'التالي';
+  cur = i;
+  document.getElementById('register').scrollIntoView({behavior:'smooth'});
+}
+
+// "Other" inputs
+document.querySelectorAll('.field').forEach(f=>{
+  const other = f.querySelector('.other-in');
+  if(!other) return;
+  f.querySelectorAll('input[type=radio]').forEach(r=>r.addEventListener('change',()=>{
+    other.classList.toggle('show', r.value==='__other' && r.checked);
+    if(r.value==='__other' && r.checked) other.focus();
+  }));
+});
+
+// clear error on input
+document.addEventListener('input',e=>{const f=e.target.closest('.field'); if(f) f.classList.remove('bad');});
+document.addEventListener('change',e=>{const f=e.target.closest('.field'); if(f) f.classList.remove('bad');});
+
+function validStep(i){
+  let ok = true, first=null;
+  steps[i].querySelectorAll('.field').forEach(f=>{
+    let bad=false;
+    const radios = f.querySelectorAll('input[type=radio]');
+    if(radios.length){
+      const c = [...radios].find(r=>r.checked);
+      if(!c) bad=true;
+      else if(c.value==='__other' && !f.querySelector('.other-in').value.trim()) bad=true;
+    } else {
+      const el = f.querySelector('input,textarea');
+      if(el && el.required){
+        if(el.type==='checkbox') bad=!el.checked;
+        else if(!el.value.trim()) bad=true;
+        else if(el.type==='email' && !/^\S+@\S+\.\S+$/.test(el.value.trim())) bad=true;
+        else if(el.type==='tel' && el.value.replace(/\D/g,'').length<9) bad=true;
+        else if(el.type==='number' && el.min && (+el.value<+el.min || (el.max && +el.value>+el.max))) bad=true;
+      }
+    }
+    f.classList.toggle('bad',bad);
+    if(bad){ok=false; first=first||f;}
+  });
+  if(first) first.scrollIntoView({behavior:'smooth',block:'center'});
+  return ok;
+}
+
+function collect(){
+  const out = [];
+  document.querySelectorAll('#formSteps .field').forEach(f=>{
+    const radios = f.querySelectorAll('input[type=radio]');
+    if(radios.length){
+      const c=[...radios].find(r=>r.checked);
+      let v = c ? c.value : '';
+      if(v==='__other') v = 'أخرى: ' + f.querySelector('.other-in').value.trim();
+      out.push([radios[0].name, v]);
+    } else {
+      const el=f.querySelector('input,textarea');
+      if(!el) return;
+      out.push([el.name, el.type==='checkbox' ? (el.checked?'موافق':'غير موافق') : (el.value.trim()||'—')]);
+    }
+  });
+  return out;
+}
+
+prevBtn.onclick = ()=>show(cur-1);
+nextBtn.onclick = async ()=>{
+  if(!validStep(cur)) return;
+  if(cur < steps.length-1) return show(cur+1);
+  await submitForm();
+};
+
+async function submitForm(){
+  const data = collect();
+  const name = (data.find(d=>d[0]==='الاسم الثلاثي')||[])[1]||'';
+  const plan = (data.find(d=>d[0]==='الباقة')||[])[1]||'';
+  const subject = `تسجيل جديد: ${name} — ${plan}`;
+  const body = data.map(([k,v])=>`${k}: ${v}`).join('\n');
+
+  nextBtn.disabled = true; nextBtn.textContent = 'جاري الإرسال...';
+  let sent = false;
+  try{
+    const payload = Object.fromEntries(data);
+    payload._subject = subject;
+    payload._template = 'table';
+    payload._captcha = 'false';
+    const res = await fetch('https://formsubmit.co/ajax/' + OWNER_EMAIL, {
+      method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify(payload)
+    });
+    const j = await res.json().catch(()=>({}));
+    sent = res.ok && String(j.success) === 'true';
+  }catch(e){ sent = false; }
+
+  document.getElementById('formSteps').style.display='none';
+  const box = document.getElementById('doneBox');
+  box.style.display='block';
+  const whatsapp = `https://wa.me/966549751982?text=${encodeURIComponent(subject+'\n\n'+body)}`;
+  const mailto = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  if(sent){
+    box.innerHTML = `<div class="big">✓</div><h3>تم استلام تسجيلك يا ${escapeHtml(name.split(' ')[0])}!</h3>
+      <p>وصلتني بياناتك، وبتواصل معك على جوالك لتأكيد الاشتراك والدفع. تستلم خطتك خلال 3–7 أيام عمل من الدفع.</p>
+      <div class="actions"><a class="btn wa" href="https://wa.me/966549751982" target="_blank" rel="noopener">تواصل معي بالواتساب</a></div>`;
+  } else {
+    box.innerHTML = `<div class="big">!</div><h3>باقي خطوة أخيرة</h3>
+      <p>أرسل بياناتك بالواتساب أو الإيميل — الرسالة جاهزة، بس اضغط إرسال.</p>
+      <div class="actions">
+        <a class="btn wa" href="${whatsapp}" target="_blank" rel="noopener">إرسال بالواتساب</a>
+        <a class="btn" href="${mailto}">إرسال بالإيميل</a>
+        <button type="button" class="btn ghost" id="copyBtn">نسخ البيانات</button>
+      </div>
+      <div>إذا ما فتح التطبيق، انسخ البيانات وأرسلها على:<br><span class="addr">${OWNER_EMAIL}</span></div>`;
+    document.getElementById('copyBtn').onclick = async (e)=>{
+      try{ await navigator.clipboard.writeText(subject+'\n\n'+body); e.target.textContent='تم النسخ ✓'; }
+      catch(_){ e.target.textContent='النسخ غير متاح'; }
+    };
+  }
+  document.getElementById('register').scrollIntoView({behavior:'smooth'});
+}
+
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+// plan buttons preselect
+document.querySelectorAll('[data-plan]').forEach(a=>a.addEventListener('click',()=>{
+  const r=[...document.querySelectorAll('input[name="الباقة"]')].find(x=>x.value===a.dataset.plan);
+  if(r) r.checked=true;
+}));
+</script>
+</body>
+</html>
